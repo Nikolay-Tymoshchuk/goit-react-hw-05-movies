@@ -1,9 +1,5 @@
 const Reviews = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+  return <div>REVIEWS</div>;
 };
 
 export default Reviews;

@@ -1,15 +1,15 @@
-import { List, Link } from './Navigation.styled';
+import { List, ListChild, Link } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <nav>
       <List>
-        <li>
+        <ListChild>
           <Link to="/">Home</Link>
-        </li>
-        <li>
+        </ListChild>
+        <ListChild>
           <Link to="/movies">Movies</Link>
-        </li>
+        </ListChild>
       </List>
     </nav>
   );
