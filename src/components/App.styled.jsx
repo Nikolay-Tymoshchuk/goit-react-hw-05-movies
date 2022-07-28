@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  min-width: 350px;
+  color: #000;
+  /* min-width: 350px;
   height: max-content;
   display: inline-flex;
   flex-direction: column;
@@ -25,9 +26,5 @@ export const Container = styled.div`
     rgba(255, 255, 255, 1) 72%,
     rgba(0, 0, 0, 0) 73%,
     rgba(0, 0, 0, 0) 100%
-  ); ;
-`;
-
-export const Title = styled.h1`
-  font-size: 40;
+  ); ; */
 `;

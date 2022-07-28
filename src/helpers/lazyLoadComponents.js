@@ -1,13 +1,11 @@
 import { lazy } from 'react';
 
-const createAsyncComponent = componentPass => lazy(() => import(componentPass));
-
-const lazyRoutes = {
-  Home: createAsyncComponent('../pages/home'),
-  Movies: createAsyncComponent('../pages/movies'),
-  MovieDetails: createAsyncComponent('../components/movie-details'),
-  Cast: createAsyncComponent('../components/cast'),
-  Reviews: createAsyncComponent('../components/reviews'),
-};
-
-export default lazyRoutes;
+export const Home = lazy(() => import('../pages/home') /* webpackChunkName: "home" */);
+export const Movies = lazy(() => import('../pages/movies') /* webpackChunkName: "movies" */);
+export const MovieDetails = lazy(
+  () => import('../components/movie-details') /* webpackChunkName: "movie-details" */
+);
+export const Cast = lazy(() => import('../components/cast') /* webpackChunkName: "cast" */);
+export const Reviews = lazy(
+  () => import('../components/reviews') /* webpackChunkName: "reviews" */
+);
