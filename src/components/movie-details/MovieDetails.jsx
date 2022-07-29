@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 function MovieDetails() {
   const location = useLocation();
   const toGoBack = location.state?.from ?? '/movies';
-  console.log('location :>> ', location);
 
   const movie = useFetchMovie();
 
@@ -51,7 +50,7 @@ function MovieDetails() {
               </li>
             </ul>
           </AdditionalInfo>
-          <Suspense fallback={<div>SMILE</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>
         </>

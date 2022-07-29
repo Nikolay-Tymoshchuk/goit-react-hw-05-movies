@@ -1,11 +1,11 @@
 import { getMovieActors } from 'api/tmdbApi';
 import { normalizerIncomingActorsData } from 'helpers/normalizers';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageBox, Character, List, ListItem } from './Cast.styled';
 
 const Cast = () => {
-  const [cast, setCast] = useState([]);
+  const [cast, setCast] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -14,32 +14,27 @@ const Cast = () => {
     });
   }, [movieId]);
 
-  console.log('cast :>> ', cast);
 
   return (
     <>
       {!cast && <div>Loading...</div>}
       {cast && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <List>
-            {cast.map(({ id, character, name, photo }) => (
-              <ListItem key={id}>
-                <h5>{name}</h5>
-                <Character>
-                  Character: <i>{character}</i>
-                </Character>
-                <ImageBox>
-                  <img src={photo} alt={name} />
-                </ImageBox>
-              </ListItem>
-            ))}
-          </List>
-        </Suspense>
+        <List>
+          {cast.map(({ id, character, name, photo }) => (
+            <ListItem key={id}>
+              <h5>{name}</h5>
+              <Character>
+                Character: <i>{character}</i>
+              </Character>
+              <ImageBox>
+                <img src={photo} alt={name} />
+              </ImageBox>
+            </ListItem>
+          ))}
+        </List>
       )}
     </>
   );
 };
 
 export default Cast;
-
-//

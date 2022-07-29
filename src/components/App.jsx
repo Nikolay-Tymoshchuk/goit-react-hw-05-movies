@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { toastifyOptions } from 'helpers/toastifyOptions';
-import SharedLayout from './navigation/SharedLayout';
+import SharedLayout from './shared-layout/SharedLayout';
 import 'react-toastify/dist/ReactToastify.css';
 import * as lazyRoutes from '../helpers/lazyLoadComponents';
 

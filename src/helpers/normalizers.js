@@ -28,3 +28,21 @@ export const normalizerIncomingActorsData = data => {
     return { id, character, name, photo };
   });
 };
+
+export const normalizerIncomingReviewsData = data => {
+  return data.results.map(({ id, author, content, author_details: { avatar_path } }) => {
+    const regex = '^/+[a-zA-Z0-9]+[.]+[a-z]+$';
+    let avatar =
+      avatar_path ?? 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png';
+
+    if (avatar.match(regex)) {
+      avatar = `${IMAGE_URL}original${avatar}`;
+    }
+
+    if (avatar.startsWith('/')) {
+      avatar = avatar.substring(1);
+    }
+
+    return { id, author, content, avatar };
+  });
+};
