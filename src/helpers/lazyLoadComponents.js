@@ -9,3 +9,6 @@ export const Cast = lazy(() => import('../components/cast') /* webpackChunkName:
 export const Reviews = lazy(
   () => import('../components/reviews') /* webpackChunkName: "reviews" */
 );
+export const ErrorPlug = lazy(
+  () => import('../components/error-plug') /* webpackChunkName: "404page" */
+);

@@ -5,7 +5,7 @@ import SharedLayout from './shared-layout/SharedLayout';
 import 'react-toastify/dist/ReactToastify.css';
 import * as lazyRoutes from '../helpers/lazyLoadComponents';
 
-const { Home, Movies, MovieDetails, Cast, Reviews } = lazyRoutes;
+const { Home, Movies, MovieDetails, Cast, Reviews, ErrorPlug } = lazyRoutes;
 
 export const App = () => {
   return (
@@ -18,6 +18,7 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<ErrorPlug />} />
         </Route>
       </Routes>
       <ToastContainer {...toastifyOptions} />
