@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/570.b6a1fd49.chunk.js","mappings":"gMAQA,EARqB,WACnB,OACE,0BACE","sources":["components/movie-details/MovieDetails.jsx"],"sourcesContent":["const MovieDetails = () => {\n  return (\n    <div>\n      <h1>Home</h1>\n    </div>\n  );\n};\n\nexport default MovieDetails;\n"],"names":[],"sourceRoot":""}
