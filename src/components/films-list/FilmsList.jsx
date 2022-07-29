@@ -1,18 +1,19 @@
-import { List, ListChild } from './FilmsList.styled';
-import { Link, useLocation } from 'react-router-dom';
+import { List, ListChild, LinkFilm } from './FilmsList.styled';
+import { useLocation } from 'react-router-dom';
+import { BiMoviePlay } from 'react-icons/bi';
 
 const FilmsList = ({ films }) => {
   const location = useLocation();
-
   return (
     <>
       {films && (
         <List>
           {films.map(film => (
             <ListChild key={film.id}>
-              <Link to={`/movies/${film.id}`} state={{ from: location }}>
+              <BiMoviePlay />
+              <LinkFilm to={`/movies/${film.id}`} state={{ from: location }}>
                 {film.title}
-              </Link>
+              </LinkFilm>
             </ListChild>
           ))}
         </List>

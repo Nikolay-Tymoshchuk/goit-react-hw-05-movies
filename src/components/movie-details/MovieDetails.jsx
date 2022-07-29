@@ -3,10 +3,12 @@ import { Link, Outlet } from 'react-router-dom';
 import { ImageBox, FilmDataBox, GoBack, AdditionalInfo } from './MovieDetails.styled';
 import { useLocation } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi';
+import { Suspense } from 'react';
 
 function MovieDetails() {
   const location = useLocation();
   const toGoBack = location.state?.from ?? '/movies';
+  console.log('location :>> ', location);
 
   const movie = useFetchMovie();
 
@@ -38,14 +40,20 @@ function MovieDetails() {
             <h4>Additional information</h4>
             <ul>
               <li>
-                <Link to={'cast'}>Cast</Link>
+                <Link to={'cast'} state={{ from: toGoBack }}>
+                  Cast
+                </Link>
               </li>
               <li>
-                <Link to={'reviews'}>Reviews</Link>
+                <Link to={'reviews'} state={{ from: toGoBack }}>
+                  Reviews
+                </Link>
               </li>
             </ul>
           </AdditionalInfo>
-          <Outlet />
+          <Suspense fallback={<div>SMILE</div>}>
+            <Outlet />
+          </Suspense>
         </>
       )}
     </>

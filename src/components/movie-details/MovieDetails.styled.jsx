@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 export const FilmDataBox = styled.div`
   display: flex;
   padding: 20px;
-  /* border-bottom: 2px solid #af1313; */
   box-shadow: 1px 3px 3px #b9b9b9;
 `;
 
 export const ImageBox = styled.div`
-  width: 300px;
-  margin-right: 4rem;
+  min-width: 300px;
+  margin-right: 2rem;
 `;
 
 export const AdditionalInfo = styled.div`
