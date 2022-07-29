@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const FilmDataBox = styled.div`
   display: flex;
@@ -30,6 +30,29 @@ export const GoBack = styled(Link)`
   text-transform: uppercase;
 
   :hover {
+    color: orangered;
+  }
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 2em;
+`;
+
+export const AdditionalInfoLink = styled(NavLink)`
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  :hover {
+    color: orangered;
+  }
+
+  &.active {
+    border: 1px solid orangered;
     color: orangered;
   }
 `;

@@ -19,6 +19,10 @@ export const normalizerIncomingFilmData = film => {
   };
 };
 
+export const normalizerIncomingFilmListData = filmList => {
+  return filmList.map(({ id, title }) => ({ id, title }));
+};
+
 export const normalizerIncomingActorsData = data => {
   return data.cast.map(({ id, character, original_name: name, profile_path }) => {
     const photo =

@@ -1,9 +1,11 @@
 import { useFetchMovie } from 'hooks/hooks';
-import { Link, Outlet } from 'react-router-dom';
-import { ImageBox, FilmDataBox, GoBack, AdditionalInfo } from './MovieDetails.styled';
+import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { HiArrowLeft } from 'react-icons/hi';
 import { Suspense } from 'react';
+import { Pulsar } from '@uiball/loaders';
+import { GoBackLink } from './GoBackLink';
+import { FilmMainData } from './FilmMainData';
+import { AdditionalInformation } from './AdditionalInformation';
 
 function MovieDetails() {
   const location = useLocation();
@@ -13,44 +15,13 @@ function MovieDetails() {
 
   return (
     <>
-      {!movie && <div>Loading...</div>}
+      {!movie && <Pulsar />}
       {movie && (
         <>
-          <GoBack to={toGoBack}>
-            <HiArrowLeft size="24" />
-            GO BACK
-          </GoBack>
-          <FilmDataBox>
-            <ImageBox>
-              <img src={movie.poster} alt={movie.title} />
-            </ImageBox>
-            <div>
-              <h2>
-                {movie.title} {`(${movie.release})`}
-              </h2>
-              <p>User score: {movie.rating}</p>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
-              <h3>Genres</h3>
-              <p>{movie.genres}</p>
-            </div>
-          </FilmDataBox>
-          <AdditionalInfo>
-            <h4>Additional information</h4>
-            <ul>
-              <li>
-                <Link to={'cast'} state={{ from: toGoBack }}>
-                  Cast
-                </Link>
-              </li>
-              <li>
-                <Link to={'reviews'} state={{ from: toGoBack }}>
-                  Reviews
-                </Link>
-              </li>
-            </ul>
-          </AdditionalInfo>
-          <Suspense fallback={<div>Loading...</div>}>
+          <GoBackLink history={toGoBack} />
+          <FilmMainData options={movie} />
+          <AdditionalInformation history={toGoBack} />
+          <Suspense fallback={<Pulsar />}>
             <Outlet />
           </Suspense>
         </>

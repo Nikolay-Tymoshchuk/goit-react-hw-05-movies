@@ -15,6 +15,7 @@ export const ContentBox = styled.div`
   margin-left: auto;
   margin-right: auto;
   box-shadow: inset 0px -30px 13px -20px #222222;
+  text-align: center;
 `;
 
 export const TextContainer = styled.div`

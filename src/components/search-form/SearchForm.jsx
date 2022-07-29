@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FormStyled } from './SearchForm.styled';
+import { SearchForm, Input, Button } from './SearchForm.styled';
+import { BsSearch } from 'react-icons/bs';
 
 function Form({ onSearch }) {
   const [search, setSearch] = useState('');
@@ -18,8 +19,8 @@ function Form({ onSearch }) {
   };
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
-      <input
+    <SearchForm onSubmit={handleSubmit}>
+      <Input
         type="text"
         autoComplete="off"
         autoFocus
@@ -28,8 +29,10 @@ function Form({ onSearch }) {
         value={search}
         required
       />
-      <button type="submit">Search</button>
-    </FormStyled>
+      <Button type="submit">
+        <BsSearch />
+      </Button>
+    </SearchForm>
   );
 }
 

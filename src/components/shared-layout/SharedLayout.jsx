@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link } from './SharedLayout.styled';
+import { Pulsar } from '@uiball/loaders';
 
 const SharedLayout = () => {
   return (
@@ -11,7 +12,7 @@ const SharedLayout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense fallback={<Pulsar color="#ff4500" />}>
         <Outlet />
       </Suspense>
     </Container>

@@ -1,8 +1,8 @@
 import { ListItem, ImageBox, AuthorDetails, Author, Review } from './Review.styled';
 export const ReviewDetails = ({ options }) => {
-  const { id, author, content, avatar } = options;
+  const { author, content, avatar } = options;
   return (
-    <ListItem key={id}>
+    <ListItem>
       <AuthorDetails>
         <ImageBox>
           <img src={avatar} alt={author} />

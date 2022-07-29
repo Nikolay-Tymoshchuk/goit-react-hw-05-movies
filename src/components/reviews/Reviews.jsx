@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ReviewDetails } from './ReviewDetails';
 import { List } from './Review.styled';
+import { Pulsar } from '@uiball/loaders';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -17,12 +18,12 @@ const Reviews = () => {
 
   return (
     <>
-      {!reviews && <div>Loading...</div>}
+      {!reviews && <Pulsar />}
       {reviews && reviews.length === 0 && <div>There are no review yet</div>}
       {reviews && (
         <List>
-          {reviews.map(reviews => (
-            <ReviewDetails options={reviews} />
+          {reviews.map(({ id, ...review }) => (
+            <ReviewDetails key={id} options={review} />
           ))}
         </List>
       )}
