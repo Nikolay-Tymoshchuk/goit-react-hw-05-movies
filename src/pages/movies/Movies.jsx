@@ -5,6 +5,7 @@ import Form from 'components/search-form';
 import { toast } from 'react-toastify';
 import { useSearchParams } from 'react-router-dom';
 import { Pulsar } from '@uiball/loaders';
+import { normalizerIncomingFilmListData } from 'helpers/normalizers';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,7 +23,7 @@ const Movies = () => {
           setMovies(null);
           return;
         }
-        setMovies(results);
+        setMovies(normalizerIncomingFilmListData(results));
       })
       .finally(() => {
         setIsLoading(false);

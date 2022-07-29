@@ -46,6 +46,7 @@ export const AdditionalInfoLink = styled(NavLink)`
   display: inline-block;
   padding: 8px 16px;
   border-radius: 4px;
+  color: black;
 
   :hover {
     color: orangered;

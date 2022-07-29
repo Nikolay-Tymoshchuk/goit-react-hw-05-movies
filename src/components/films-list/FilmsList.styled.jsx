@@ -15,7 +15,6 @@ export const ListChild = styled.li`
 
   &:hover {
     color: orangered;
-    /* letter-spacing: 0.1em; */
     transform-origin: left bottom;
     transform: scale(1.05);
     transition: 200ms linear;
