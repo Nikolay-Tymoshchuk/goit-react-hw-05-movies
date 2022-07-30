@@ -6,7 +6,7 @@ export const GoBackLink = ({ history }) => {
   return (
     <GoBack to={history}>
       <HiArrowLeft size="24" />
-      GO BACK
+      RETURN BACK
     </GoBack>
   );
 };

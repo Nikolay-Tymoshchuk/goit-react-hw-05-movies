@@ -2,7 +2,6 @@ import { string, oneOfType, shape } from 'prop-types';
 import { AdditionalInfo, List, AdditionalInfoLink } from './MovieDetails.styled';
 
 export const AdditionalInformation = ({ history }) => {
-  console.log('history :>> ', history);
   return (
     <AdditionalInfo>
       <h4>Additional information</h4>

@@ -2,9 +2,13 @@ import styled from '@emotion/styled';
 import { Link, NavLink } from 'react-router-dom';
 
 export const FilmDataBox = styled.div`
-  display: flex;
+  display: block;
   padding: 20px;
   box-shadow: 0px 3px 3px -3px #707070;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const ImageBox = styled.div`
