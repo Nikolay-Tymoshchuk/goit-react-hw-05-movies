@@ -1,26 +1,46 @@
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import FilmsList from 'components/films-list';
 import Form from 'components/search-form';
 import { useSearchParams } from 'react-router-dom';
 import { Pulsar } from '@uiball/loaders';
-import { useFetchMoviesList } from 'hooks/useFetchMoviesList';
+import { getSearchMovie } from 'api/tmdbApi';
+import { toast } from 'react-toastify';
+import { normalizerIncomingFilmListData } from 'helpers/normalizers';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const isLoading = useRef(false);
+  const [movies, setMovies] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const search = searchParams.get('query');
+    if (!search) return;
+
+    getSearchMovie(search)
+      .then(data => {
+        const { results } = data;
+        if (results.length === 0) {
+          setMovies(null);
+          toast.error('No results found');
+          return;
+        }
+        setMovies(normalizerIncomingFilmListData(results));
+      })
+      .catch(() => toast.error('Oops.Something went wrong'))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [searchParams]);
 
   const handleSearchAndUrlChange = value => {
-    isLoading.current = true;
+    setIsLoading(true);
     setSearchParams({ query: value });
   };
 
-  const { movies } = useFetchMoviesList(searchParams, isLoading);
-
-  console.log('isLoading :>> ', isLoading);
   return (
     <>
       <Form onSearch={handleSearchAndUrlChange} />
-      {isLoading.current && <Pulsar />}
+      {isLoading && <Pulsar />}
       {movies && <FilmsList films={movies} />}
     </>
   );
