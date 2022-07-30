@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 export const FilmDataBox = styled.div`
   display: flex;
   padding: 20px;
-  box-shadow: 1px 3px 3px #b9b9b9;
+  box-shadow: 0px 3px 3px -3px #707070;
 `;
 
 export const ImageBox = styled.div`
@@ -15,7 +15,8 @@ export const ImageBox = styled.div`
 export const AdditionalInfo = styled.div`
   padding: 20px;
   padding-top: 0;
-  box-shadow: 1px 3px 3px #b9b9b9;
+  box-shadow: 0px 3px 3px -3px #707070;
+  margin-bottom: 40px;
 `;
 
 export const GoBack = styled(Link)`

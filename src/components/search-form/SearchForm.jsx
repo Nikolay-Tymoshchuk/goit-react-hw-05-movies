@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { SearchForm, Input, Button } from './SearchForm.styled';
 import { BsSearch } from 'react-icons/bs';
 
-function Form({ onSearch }) {
+const Form = ({ onSearch }) => {
   const [search, setSearch] = useState('');
 
   const handleSubmit = e => {
@@ -34,6 +35,10 @@ function Form({ onSearch }) {
       </Button>
     </SearchForm>
   );
-}
+};
+
+Form.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default Form;

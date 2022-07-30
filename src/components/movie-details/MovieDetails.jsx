@@ -1,4 +1,4 @@
-import { useFetchMovie } from 'hooks/hooks';
+import { useFetchMovie } from 'hooks/useFetchMovie';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Suspense } from 'react';

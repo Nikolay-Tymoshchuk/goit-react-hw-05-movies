@@ -1,16 +1,22 @@
 import { getTrending } from '../../api/tmdbApi';
 import { useEffect, useState } from 'react';
-import FilmsList from 'components/films-list';
 import { Pulsar } from '@uiball/loaders';
 import { normalizerIncomingFilmListData } from 'helpers/normalizers';
+import { toast } from 'react-toastify';
+import FilmsList from 'components/films-list';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    getTrending().then(data => {
-      setMovies(normalizerIncomingFilmListData(data.results));
-    });
+    getTrending()
+      .then(data => {
+        setMovies(normalizerIncomingFilmListData(data.results));
+      })
+      .catch(() => {
+        toast.error('Oops.Something went wrong');
+        setMovies([]);
+      });
   }, []);
 
   return (

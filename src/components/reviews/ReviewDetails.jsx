@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { ListItem, ImageBox, AuthorDetails, Author, Review } from './Review.styled';
+
 export const ReviewDetails = ({ options }) => {
   const { author, content, avatar } = options;
   return (
@@ -12,4 +14,12 @@ export const ReviewDetails = ({ options }) => {
       <Review>{content}</Review>
     </ListItem>
   );
+};
+
+ReviewDetails.propTypes = {
+  options: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
 };

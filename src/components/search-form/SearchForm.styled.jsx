@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const SearchForm = styled.form`
+  background-color: inherit;
   height: 34px;
   display: flex;
   align-items: center;
@@ -9,10 +10,16 @@ export const SearchForm = styled.form`
 `;
 
 export const Input = styled.input`
+  background-color: inherit;
+  text-indent: 1em;
   height: 100%;
   width: 100%;
   border-radius: 4px;
   border: 1px solid #707070;
+  &:focus {
+    outline: none;
+    border: 2px solid orangered;
+  }
 `;
 
 export const Button = styled.button`

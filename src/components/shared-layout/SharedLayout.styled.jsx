@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 960px;
-  margin: 0 auto 40px;
-  padding: 0 16px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  min-height: 100vh;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  background-color: #d9dae0;
 `;
 
 export const Header = styled.header`
