@@ -19,16 +19,16 @@ export const ContentBox = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  width: 600px;
+  max-width: 600px;
 `;
 
 export const MainText = styled.p`
-  font-size: 2em;
+  font-size: 1em;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 `;
 
 export const SubText = styled.p`
-  font-size: 1.5em;
+  font-size: 1em;
 `;
