@@ -5,7 +5,7 @@ export const NoReview = () => {
   return (
     <NoReviewBox>
       <ImFileEmpty size={32} />
-      <p>There is no reviews yes</p>
+      <p>No reviews yet</p>
     </NoReviewBox>
   );
 };
