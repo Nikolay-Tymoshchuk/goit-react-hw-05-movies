@@ -43,6 +43,7 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   gap: 2em;
+  padding-left: 0;
 `;
 
 export const AdditionalInfoLink = styled(NavLink)`
