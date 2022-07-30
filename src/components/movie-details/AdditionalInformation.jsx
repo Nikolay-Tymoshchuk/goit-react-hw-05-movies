@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
+import { string, oneOfType, shape } from 'prop-types';
 import { AdditionalInfo, List, AdditionalInfoLink } from './MovieDetails.styled';
 
 export const AdditionalInformation = ({ history }) => {
+  console.log('history :>> ', history);
   return (
     <AdditionalInfo>
       <h4>Additional information</h4>
@@ -22,11 +23,11 @@ export const AdditionalInformation = ({ history }) => {
 };
 
 AdditionalInformation.propTypes = {
-  history: PropTypes.exact({
-    pathname: PropTypes.string.isRequired,
-    search: PropTypes.string.isRequired,
-    hash: PropTypes.string.isRequired,
-    state: PropTypes.object,
-    key: PropTypes.string,
-  }).isRequired,
+  history: oneOfType([
+    string,
+    shape({
+      pathname: string.isRequired,
+      search: string.isRequired,
+    }),
+  ]).isRequired,
 };

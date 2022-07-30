@@ -10,6 +10,7 @@ export const ImageBox = styled.div`
   display: inline-block;
   border-radius: 8px;
   overflow: hidden;
+  background-color: #707070;
 `;
 
 export const Author = styled.h5`
